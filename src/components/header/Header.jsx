@@ -7,6 +7,7 @@ import lcon from "../../assets/Icon.svg"
 import lupa from "../../assets/Lupa.svg"
 import { BsFillCartPlusFill } from "react-icons/bs";
 import { FaRegHeart } from "react-icons/fa";
+import { AiOutlineUser } from "react-icons/ai";
 const Header = () => {
   const { cart } = useContext(CartContextCard);
   const {like} = useContext(LikeContextCard)
@@ -51,7 +52,7 @@ const Header = () => {
         </div>
         <div class="hidden te w-full md:block md:w-auto" id="navbar-default">
           <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-default rounded-base bg-neutral-secondary-soft md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-neutral-primary">
-            <li>
+            {/* <li>
               <NavLink
                 to={"/"}
                 class="block py-2 px-3 text-white bg-brand rounded md:bg-transparent md:text-fg-brand md:p-0"
@@ -59,7 +60,7 @@ const Header = () => {
               >
                 Home
               </NavLink>
-            </li>
+            </li> */}
             <li>
               <NavLink
                 to={"/cart"}
@@ -81,7 +82,7 @@ const Header = () => {
                 to={"/register"}
                 class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent"
               >
-                Register
+                <AiOutlineUser className="text-red-50 text-[24px] flex-none " />
               </NavLink>
             </li>
           </ul>
