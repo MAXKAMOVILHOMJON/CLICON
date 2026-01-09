@@ -63,14 +63,14 @@ const Header = () => {
             <li>
               <NavLink
                 to={"/cart"}
-                class="block py-2 px-3 relative text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent"
+                className="block py-2 px-3 relative text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent"
               >
-                 <BsFillCartPlusFill className="text-[24px] text-amber-50 " /> <span className=" w-[16px] h-[16px] rounded-[50%]  text-center items-center bg-white absolute  top-[20px] right-[170px] ">{cart.length}</span>
+                 <BsFillCartPlusFill className="text-[24px] text-amber-50 " /> <span className=" w-[16px] h-[16px] rounded-[50%]  text-center items-center bg-white absolute  top-[-3px] right-[1px] ">{cart.length}</span>
               </NavLink>
             </li>
             <li>
               <NavLink
-                class="block py-2 px-3 text-heading rounded flex  hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent"
+                className="block py-2 px-3 text-heading rounded flex  hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent"
                 to={"/like"}
               >
                 <FaRegHeart className="text-red-50 text-[24px] flex-none " /><span>{like.length}</span>
