@@ -70,10 +70,10 @@ const Header = () => {
             </li>
             <li>
               <NavLink
-                class="block py-2 px-3 text-heading rounded  flex hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent"
+                class="block py-2 px-3 text-heading rounded flex  hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent"
                 to={"/like"}
               >
-                <FaRegHeart className="text-red-500 text-[24px]" /><span>{like.length}</span>
+                <FaRegHeart className="text-red-50 text-[24px] flex-none " /><span>{like.length}</span>
               </NavLink>
             </li>
             <li>
