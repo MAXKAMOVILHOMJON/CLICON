@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import {useContext} from "react"
 import { CartContextCard } from "../../context/CartContext";
@@ -8,9 +8,14 @@ import lupa from "../../assets/Lupa.svg"
 import { BsFillCartPlusFill } from "react-icons/bs";
 import { FaRegHeart } from "react-icons/fa";
 import { AiOutlineUser } from "react-icons/ai";
+import useGet from './../../hooks/useGet';
 const Header = () => {
   const { cart } = useContext(CartContextCard);
-  const {like} = useContext(LikeContextCard)
+  const {like} = useContext(LikeContextCard);
+  const [Search , setSearch] = useState("");
+  const {data} = useGet({url:`products/search?q=${Search}&limit=200` })
+  const SearchData = data?.data?.products;
+    
   return (
     <nav class=" bg-[#1B6392] z-10 fixed w-full z-20 top-0 start-0 border-b border-default">
       <div class="container  flex flex-wrap items-center justify-between mx-auto p-4">
@@ -47,8 +52,28 @@ const Header = () => {
             />
           </svg>
         </button>
-        <div className=" bg-white border-2  w-[646px] h-[48px] flex items-center px-0.5" >
-          <input type="text" placeholder="Search for anything..." className=" w-[640px]  h-full border-b-zinc-50 "/><img src={lupa} className="w-[30px] h-[30px] "/> 
+        <div  className=" w-full  max-w-[646px] relative">
+        <div className=" bg-white border-2 w-full  max-w-[646px] h-[48px] flex items-center px-0.5" >
+          <input 
+        onChange={(e) => setSearch(e.target.value)} 
+          type="search" 
+          placeholder="Search for anything..." 
+          className=" max-w-[640px] w-full  border-b-zinc-50  rounded-2xl outline-none "/><img src={lupa} className="w-[30px] h-[30px] "/> 
+          </div> 
+          {Search === ""? 
+            " "
+          : <div className=" bg-red-500 rounded-2xl absolute z-10 top-[54px] w-full p-5">
+           {SearchData ?.map((el) => (
+            <div className=" flex gap-5"> 
+           <img className="w-[50px] h-[50px] " src={el.thumbnail} alt=""/>
+           <div>
+            <h1 className=" text-[24px] line-clamp-1">{el.title}</h1>
+            <p className=" line-clamp-1">{el.description}</p>
+           </div>
+            </div>
+           ))}
+          </div>
+          }
         </div>
         <div class="hidden te w-full md:block md:w-auto" id="navbar-default">
           <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-default rounded-base bg-neutral-secondary-soft md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-neutral-primary">

@@ -7,7 +7,7 @@ const useGet = ({url , id = ""}) => {
 
   const getData = async() => {
     try{
-      let res = await axios.get(`https://dummyjson.com/${url}/${id}`);
+      let res = await axios.get(`https://dummyjson.com/${url}${id === ""?"" :`/${id}`}`);
       setData(res)      
     }catch(err){
       console.log(err);
